@@ -1,0 +1,19 @@
+#contact-list li {
+  display: grid;
+  grid-template-columns: 1fr 50fr 1fr 1fr;
+  grid-template-areas: "avatar name edit delete";
+  grid-column-gap: 10px;
+  align-items: center;
+}
+#contact-list .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  background: #f3f3f3;
+  font-weight: 600;
+}

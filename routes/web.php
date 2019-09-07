@@ -12,11 +12,9 @@
 */
 
 Route::get('/', function() {
-    return redirect('/login');
+    return redirect('/contacts');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('contacts', 'ContactsController');

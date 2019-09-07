@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Contact;
 
 class ContactsController extends Controller
 {
+
+    /**
+     *  Allow only authenticated users
+     *
+     *  @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,8 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        //
+      $contacts = Contact::orderBy('nome', 'asc')->get();
+      return view('contacts.index')->with('contacts', $contacts);
     }
 
     /**
