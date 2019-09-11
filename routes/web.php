@@ -18,3 +18,5 @@ Route::get('/', function() {
 Auth::routes();
 
 Route::resource('contacts', 'ContactsController');
+
+Route::get('zipcode/{number}', 'ZipCodeController@get');
