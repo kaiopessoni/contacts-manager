@@ -12,7 +12,7 @@
 
       @foreach ($contacts as $contact)
         @php
-          $first_letter = strtoupper($contact->nome[0]);
+          $first_letter = strtoupper($contact->name[0]);
           if ($old_letter != $first_letter) {
             $show_category = true;
             $old_letter = $first_letter;
@@ -29,7 +29,7 @@
         <li class="list-group-item list-group-item-action" aria-disabled="true">
           <div class="avatar" style="grid-area: avatar">{{$first_letter}}</div>
           <span class="name" style="grid-area: name">
-            <a href="/contacts/{{$contact->id}}">{{$contact->nome}}</a>
+            <a href="/contacts/{{$contact->id}}">{{$contact->name}}</a>
           </span>
           <button type="button" class="btn btn-outline-dark" title="Edit" style="grid-area: edit">
             <i class="fa fa-pencil"></i>

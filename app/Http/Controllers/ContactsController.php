@@ -25,7 +25,7 @@ class ContactsController extends Controller
      */
     public function index()
     {
-      $contacts = Contact::orderBy('nome', 'asc')->get();
+      $contacts = Contact::orderBy('name', 'asc')->get();
       return view('contacts.index')->with('contacts', $contacts);
     }
 
@@ -36,7 +36,7 @@ class ContactsController extends Controller
      */
     public function create()
     {
-        //
+      return view('contacts.create');
     }
 
     /**
@@ -47,7 +47,37 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+        'name' => 'required',
+        'phone' => 'required',
+        'email' => 'required',
+        'zipcode' => 'required',
+        'state' => 'required',
+        'city' => 'required',
+        'neighbourhood' => 'required',
+        'street' => 'required',
+      ]);
+
+      $contact = new Contact;
+      $contact->name            = $request->input('name');
+      $contact->phone           = $request->input('phone');
+      $contact->email           = $request->input('email');
+      $contact->zipcode         = $request->input('zipcode');
+      $contact->state           = $request->input('state');
+      $contact->city            = $request->input('city');
+      $contact->neighbourhood   = $request->input('neighbourhood');
+      $contact->street          = $request->input('street');
+      $contact->number          = $request->input('number');
+
+      $contact->save();
+
+      $response = [
+        "success" => true,
+        "message" => "Contact created successfully."
+      ];
+
+      return Response()->json($response);
+
     }
 
     /**
