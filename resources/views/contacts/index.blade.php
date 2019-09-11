@@ -29,7 +29,7 @@
         <li class="list-group-item list-group-item-action" aria-disabled="true">
           <div class="avatar" style="grid-area: avatar">{{$first_letter}}</div>
           <span class="name" style="grid-area: name">
-            <a href="/contacts/{{$contact->id}}">{{$contact->name}}</a>
+            <a href="/contacts/{{$contact->id}}" title="Click to see the details">{{$contact->name}}</a>
           </span>
           <button type="button" class="btn btn-outline-dark" title="Edit" style="grid-area: edit">
             <i class="fa fa-pencil"></i>

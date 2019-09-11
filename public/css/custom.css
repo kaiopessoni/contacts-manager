@@ -19,3 +19,14 @@
 }
 
 .swal-footer { text-align: center; }
+
+#contact-info .row i {
+  font-size: 1.3rem;
+}
+
+#contact-info .attribute {
+  font-size: 1rem;
+  margin-left: .5rem;
+}
+
+#contact-info .info-value { font-size: 1rem; }
