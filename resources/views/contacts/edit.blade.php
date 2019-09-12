@@ -135,7 +135,8 @@
           if (data.success === true) {
             swAlert('success', data.message);
             $('#form-update-contact .form-control').removeClass('is-valid');
-          }
+          } else
+            swAlert('error', data.message);
 
         },
         error: (data) => {

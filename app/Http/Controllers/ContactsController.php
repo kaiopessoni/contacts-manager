@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contact;
+use App\User;
 
 class ContactsController extends Controller
 {
@@ -15,7 +16,7 @@ class ContactsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+      $this->middleware('auth');
     }
 
     /**
@@ -25,8 +26,11 @@ class ContactsController extends Controller
      */
     public function index()
     {
-      $contacts = Contact::orderBy('name', 'asc')->get();
-      return view('contacts.index')->with('contacts', $contacts);
+      $user_id = auth()->user()->id;
+      $user = User::find($user_id);
+
+      // $contacts = Contact::orderBy('name', 'asc')->get();
+      return view('contacts.index')->with('contacts', $user->contacts);
     }
 
     /**
@@ -90,6 +94,10 @@ class ContactsController extends Controller
     public function show($id)
     {
       $contact = Contact::find($id);
+
+      if (auth()->user()->id !== $contact->user_id)
+        return redirect('/');
+
       return view('contacts.show')->with('contact', $contact);
     }
 
@@ -102,6 +110,10 @@ class ContactsController extends Controller
     public function edit($id)
     {
       $contact = Contact::find($id);
+
+      if (auth()->user()->id !== $contact->user_id)
+        return redirect('/');
+
       return view('contacts.edit')->with('contact', $contact);
     }
 
@@ -127,6 +139,10 @@ class ContactsController extends Controller
       ]);
 
       $contact = Contact::find($id);
+
+      if (auth()->user()->id !== $contact->user_id)
+        return Response()->json(['success' => false, 'message' => 'Access denied!']);
+
       $contact->name            = $request->input('name');
       $contact->phone           = $request->input('phone');
       $contact->email           = $request->input('email');
@@ -157,6 +173,10 @@ class ContactsController extends Controller
     {
 
       $contact = Contact::find($id);
+
+      if (auth()->user()->id !== $contact->user_id)
+        return Response()->json(['success' => false, 'message' => 'Access denied!']);
+
       $contact->delete();
 
       $response = [

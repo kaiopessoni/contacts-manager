@@ -73,11 +73,9 @@
           if (data.success === true) {
             swAlert('success', data.message);
             $(`#item-${id}`).fadeToggle().remove();
-          }
+          } else
+            swAlert('error', data.message);
 
-        },
-        error: (data) => {
-          swAlert('error', data.message);
         }
       });
 
