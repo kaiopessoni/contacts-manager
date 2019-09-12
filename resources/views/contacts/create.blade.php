@@ -58,7 +58,7 @@
     </div>
 
     <div class="row justify-content-center">
-      <button type="submit" class="btn btn-outline-dark mt-3">Create Contact</button>
+      <button id="btn-create" type="submit" class="btn btn-outline-dark mt-3">Create Contact</button>
     </div>
 
   </form>
@@ -116,11 +116,19 @@
         }
       });
 
+      $('#btn-create')
+        .html('Loading &nbsp;<i class="fa fa-refresh fa-spin"></i>')
+        .prop('disabled', true);
+
       $.ajax({
         url: '/contacts',
         type: 'POST',
         data: $('#form-create-contact').serialize(),
         success: (data) => {
+
+          $('#btn-create')
+            .html('Create Contact')
+            .prop('disabled', false);
 
           if (data.success === true) {
             swAlert('success', data.message);
@@ -130,6 +138,11 @@
 
         },
         error: (data) => {
+
+          $('#btn-create')
+            .html('Create Contact')
+            .prop('disabled', false);
+
           const errors = data.responseJSON.errors;
           const validator = $('#form-create-contact').validate();
           validator.showErrors(errors);
