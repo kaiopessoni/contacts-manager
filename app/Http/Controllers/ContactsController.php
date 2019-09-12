@@ -29,8 +29,7 @@ class ContactsController extends Controller
       $user_id = auth()->user()->id;
       $user = User::find($user_id);
 
-      // $contacts = Contact::orderBy('name', 'asc')->get();
-      return view('contacts.index')->with('contacts', $user->contacts);
+      return view('contacts.index')->with('contacts', $user->contacts()->orderBy('name', 'asc')->get());
     }
 
     /**
