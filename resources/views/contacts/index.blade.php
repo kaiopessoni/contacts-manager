@@ -68,7 +68,6 @@
         },
         url: `/contacts/${id}?_method=DELETE`,
         type: 'POST',
-        data: '_mssethod=DELETE',
         success: (data) => {
 
           if (data.success === true) {
