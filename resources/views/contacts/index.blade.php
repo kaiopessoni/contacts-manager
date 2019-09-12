@@ -31,9 +31,9 @@
           <span class="name" style="grid-area: name">
             <a href="/contacts/{{$contact->id}}" title="Click to see the details">{{$contact->name}}</a>
           </span>
-          <button type="button" class="btn btn-outline-dark" title="Edit" style="grid-area: edit">
+          <a href="/contacts/{{$contact->id}}/edit" class="btn btn-outline-dark" title="Edit" style="grid-area: edit">
             <i class="fa fa-pencil"></i>
-          </button>
+          </a>
           <button type="button" class="btn btn-outline-danger" title="Delete" style="grid-area: delete">
             <i class="fa fa-trash"></i>
           </button>

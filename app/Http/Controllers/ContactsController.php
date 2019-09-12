@@ -100,7 +100,8 @@ class ContactsController extends Controller
      */
     public function edit($id)
     {
-        //
+      $contact = Contact::find($id);
+      return view('contacts.edit')->with('contact', $contact);
     }
 
     /**
@@ -112,7 +113,37 @@ class ContactsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+      $this->validate($request, [
+        'name' => 'required',
+        'phone' => 'required',
+        'email' => 'required',
+        'zipcode' => 'required',
+        'state' => 'required',
+        'city' => 'required',
+        'neighbourhood' => 'required',
+        'street' => 'required',
+      ]);
+
+      $contact = Contact::find($id);
+      $contact->name            = $request->input('name');
+      $contact->phone           = $request->input('phone');
+      $contact->email           = $request->input('email');
+      $contact->zipcode         = $request->input('zipcode');
+      $contact->state           = $request->input('state');
+      $contact->city            = $request->input('city');
+      $contact->neighbourhood   = $request->input('neighbourhood');
+      $contact->street          = $request->input('street');
+      $contact->number          = $request->input('number');
+
+      $contact->save();
+
+      $response = [
+        "success" => true,
+        "message" => "Contact updated successfully."
+      ];
+
+      return Response()->json($response);
     }
 
     /**
