@@ -67,7 +67,7 @@ class ContactsController extends Controller
       $contact->city            = $request->input('city');
       $contact->neighbourhood   = $request->input('neighbourhood');
       $contact->street          = $request->input('street');
-      $contact->number          = $request->input('number');
+      $contact->number          = $request->input('number') ?? 0;
 
       $contact->save();
 
@@ -134,7 +134,7 @@ class ContactsController extends Controller
       $contact->city            = $request->input('city');
       $contact->neighbourhood   = $request->input('neighbourhood');
       $contact->street          = $request->input('street');
-      $contact->number          = $request->input('number');
+      $contact->number          = $request->input('number') ?? 0;
 
       $contact->save();
 
