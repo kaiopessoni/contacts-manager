@@ -68,6 +68,7 @@ class ContactsController extends Controller
       $contact->neighbourhood   = $request->input('neighbourhood');
       $contact->street          = $request->input('street');
       $contact->number          = $request->input('number') ?? 0;
+      $contact->user_id         = auth()->user()->id;
 
       $contact->save();
 
