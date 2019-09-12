@@ -40,15 +40,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                      @guest
-                      @else
+                      @if (!Auth::guest())
                         <li class="nav-item">
                           <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="/contacts/create">Create contact</a>
                         </li>
-                      @endguest
+                      @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
