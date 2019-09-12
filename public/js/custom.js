@@ -47,7 +47,7 @@ function swAlert(status, message, options = {}) {
   });
 }
 
-function swConfirm(message) {
+function swConfirm(message, options = {}) {
 
   return new Promise(async (resolve) => {
 
@@ -61,7 +61,8 @@ function swConfirm(message) {
           text: 'Yes',
           closeModal: false
         }
-      }
+      },
+      ...options,
     });
 
     if (res) $('.swal-button--cancel').hide(100);

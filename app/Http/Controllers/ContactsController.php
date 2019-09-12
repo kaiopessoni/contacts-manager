@@ -154,6 +154,15 @@ class ContactsController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+      $contact = Contact::find($id);
+      $contact->delete();
+
+      $response = [
+        "success" => true,
+        "message" => "Contact deleted successfully."
+      ];
+
+      return Response()->json($response);
     }
 }
