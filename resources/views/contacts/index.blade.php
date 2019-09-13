@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <ul id="contact-list" class="list-group mb-5 shadow-sm_">
+    <ul id="contact-list" class="list-group mb-5 shadow-sm">
       @php
         $old_letter = '';
         $show_category = true;
