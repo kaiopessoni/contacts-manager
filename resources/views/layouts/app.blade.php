@@ -15,6 +15,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ asset('js/jquery.validate.min.js') }}" defer></script>
     <script src="{{ asset('js/additional-methods.min.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap3-typeahead.min.js') }}" defer></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
 
     <!-- Fonts -->

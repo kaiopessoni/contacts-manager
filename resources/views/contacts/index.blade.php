@@ -6,7 +6,18 @@
 
   @if (count($contacts) > 0)
 
-    <ul id="contact-list" class="list-group">
+    <div class="row mb-5">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="input-group">
+          <input type="text" id="search" class="typeahead form-control" name="search" placeholder="Search a contact" autocomplete="off">
+          <div class="input-group-append">
+            <button id="goto" class="btn btn-outline-dark" type="button">Go to selected contact</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul id="contact-list" class="list-group mb-5 shadow-sm_">
       @php
         $old_letter = '';
         $show_category = true;
@@ -45,7 +56,10 @@
     </ul>
 
   @else
-    <p>Não há nenhum contato cadastrado!</p>
+    <div class="text-center mt-5">
+      <h2 class="mb-3">You don't have any contact yet =(</h2>
+      <h5>Click <a href="/contacts/create">here</a> to create one!</h5>
+    </div>
   @endif
 
   <script type="application/javascript">
@@ -53,6 +67,25 @@
       $('.btn-delete').click(function() {
         deleteContact(this);
       });
+
+      let aucompletePath = '{{route('autocomplete')}}';
+
+      $.get(aucompletePath, (data) => {
+        $('#search').typeahead({
+          source: data
+        });
+      });
+
+      $('#search').change(function() {
+        var current = $(this).typeahead('getActive');
+        $('#goto').data('href', `/contacts/${current.id}`);
+      });
+
+      $('#goto').click(function() {
+        let href = $(this).data('href');
+        if (href) window.location.href = $(this).data('href');
+      });
+
     });
 
     async function deleteContact(el) {

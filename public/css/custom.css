@@ -12,11 +12,13 @@
   margin-right: 1rem;
   width: 40px;
   height: 40px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #6d6d6d;
   border-radius: 50%;
-  background: #f3f3f3;
+  background: #fff;
   font-weight: 600;
 }
+
+#contact-list li .name { font-size: 1rem; }
 
 .swal-footer { text-align: center; }
 
