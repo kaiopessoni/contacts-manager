@@ -68,9 +68,9 @@
         deleteContact(this);
       });
 
-      let aucompletePath = '{{route('autocomplete')}}';
+      let autocompletePath = '{{route('autocomplete')}}';
 
-      $.get(aucompletePath, (data) => {
+      $.get(autocompletePath, (data) => {
         $('#search').typeahead({
           source: data
         });
