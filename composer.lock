@@ -1806,16 +1806,16 @@
         },
         {
             "name": "sabberworm/php-css-parser",
-            "version": "5.1.2",
+            "version": "5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
-                "reference": "4c4ab985e372113dbfd0a8192fbd8629bface9bb"
+                "reference": "d8453c394bde94809ee244bed4c6087f4fd5ffe1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/4c4ab985e372113dbfd0a8192fbd8629bface9bb",
-                "reference": "4c4ab985e372113dbfd0a8192fbd8629bface9bb",
+                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/d8453c394bde94809ee244bed4c6087f4fd5ffe1",
+                "reference": "d8453c394bde94809ee244bed4c6087f4fd5ffe1",
                 "shasum": ""
             },
             "require": {
@@ -1843,7 +1843,11 @@
                 "parser",
                 "stylesheet"
             ],
-            "time": "2014-04-24T18:00:51+00:00"
+            "support": {
+                "issues": "https://github.com/sabberworm/PHP-CSS-Parser/issues",
+                "source": "https://github.com/sabberworm/PHP-CSS-Parser/tree/5.1.3"
+            },
+            "time": "2020-06-01T09:05:50+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5081,5 +5085,6 @@
     "platform": {
         "php": "^7.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }
